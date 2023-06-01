@@ -1,4 +1,8 @@
+import 'package:easy_consulting/pages/cadastros/cadastros.dart';
+import 'package:easy_consulting/pages/menu/menu.dart';
 import 'package:flutter/material.dart';
+
+import '../grupos/administracao_grupos.dart';
 
 class DrawerMenu extends StatelessWidget {
   const DrawerMenu({super.key});
@@ -17,11 +21,25 @@ class DrawerMenu extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: const Icon(Icons.menu),
+            title: const Text("Menu"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const Menu()),
+              );
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.edit),
             title: const Text("Cadastros"),
             onTap: () {
               Navigator.pop(context);
-              //Navegar para outra página
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const Cadastros()),
+              );
             },
           ),
           ListTile(
@@ -29,7 +47,10 @@ class DrawerMenu extends StatelessWidget {
             title: const Text("Meus Grupos"),
             onTap: () {
               Navigator.pop(context);
-              //Navegar para outra página
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const AdministracaoGrupos()),
+              );
             },
           ),
           const Divider(),

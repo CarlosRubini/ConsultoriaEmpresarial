@@ -46,9 +46,9 @@ class LoginWebState extends State<LoginWeb> {
                               top: Radius.circular(10), bottom: Radius.zero)),
                       height: 60,
                       width: 350,
-                      child: Text(
+                      child: const Text(
                         'Bem Vindo',
-                        style: GoogleFonts.josefinSans(
+                        style: TextStyle(
                           fontSize: 25,
                           color: Colors.white,
                         ),
@@ -97,8 +97,8 @@ class LoginWebState extends State<LoginWeb> {
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: ElevatedButton(
                         onPressed: _navigateToMainPage,
-                        child: Text("Entrar",
-                            style: GoogleFonts.lato(
+                        child: const Text("Entrar",
+                            style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,
                             )),
@@ -109,8 +109,8 @@ class LoginWebState extends State<LoginWeb> {
                       padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text("Criar Conta",
-                            style: GoogleFonts.lato(
+                        child: const Text("Criar Conta",
+                            style: TextStyle(
                               fontSize: 16,
                               color: Colors.white,
                             )),

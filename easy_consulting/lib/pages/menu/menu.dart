@@ -38,8 +38,7 @@ class MenuState extends State<Menu> {
             fit: BoxFit.fill,
           ),
         ),
-        child: SingleChildScrollView(
-            child: Center(
+        child: Center(
                 child: Container(
                     margin: const EdgeInsets.all(10),
                     padding: const EdgeInsets.all(10),
@@ -129,9 +128,7 @@ class MenuState extends State<Menu> {
                               const Card(color: Color.fromRGBO(253, 53, 53, 1)),
                         ),
                       ],
-                    )))),
-      ),
-    );
+                    )))));
   }
 }
 
