@@ -2,8 +2,22 @@ import 'package:flutter/material.dart';
 
 import '../menu/drawer_menu.dart';
 
-class Cadastros extends StatelessWidget {
+class Cadastros extends StatefulWidget {
   const Cadastros({super.key});
+
+  @override
+  State<Cadastros> createState() => CadastrosState();
+}
+
+class CadastrosState extends State<Cadastros>
+    with SingleTickerProviderStateMixin {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +41,46 @@ class Cadastros extends StatelessWidget {
               ),
             ),
             child: Center(
-                    child: Container(
-                        margin: const EdgeInsets.all(10),
-                        padding: const EdgeInsets.all(10),
-                        width: MediaQuery.of(context).size.width * 0.81,
-                        height: MediaQuery.of(context).size.height,
-                        decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(
-                                    0, 3), // changes position of shadow
-                              )
-                            ],
-                            color: Colors.grey[200],
-                            borderRadius: const BorderRadius.all(
-                                Radius.circular(15)))))));
+              child: Container(
+                  margin: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
+                  width: MediaQuery.of(context).size.width * 0.81,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: DefaultTabController(
+                    length: 3,
+                    child: Scaffold(
+                      appBar: AppBar(
+                        toolbarHeight: 0,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(10),
+                          ),
+                        ),
+                        bottom: TabBar(
+                          controller: _tabController,
+                          isScrollable: true,
+                          labelStyle: const TextStyle(fontSize: 14),
+                          tabs: const <Widget>[
+                            Tab(
+                              text: "Processos",
+                            ),
+                            Tab(
+                              text: "Perguntas",
+                            ),
+                            Tab(
+                              text: "Respostas",
+                            ),
+                          ],
+                        ),
+                      ),
+                      body: Container(
+                        color: Colors.green,
+                      ),
+                    ),
+                  )),
+            )));
   }
 }
