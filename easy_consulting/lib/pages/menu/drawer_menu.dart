@@ -2,6 +2,7 @@ import 'package:easy_consulting/pages/cadastros/cadastros.dart';
 import 'package:easy_consulting/pages/menu/menu.dart';
 import 'package:flutter/material.dart';
 
+import '../cadastros/area/cadastro_area.dart';
 import '../grupos/administracao_grupos.dart';
 
 class DrawerMenu extends StatelessWidget {

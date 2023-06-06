@@ -1,6 +1,8 @@
+import 'package:easy_consulting/pages/cadastros/area/cadastro_area.dart';
 import 'package:flutter/material.dart';
 
 import '../menu/drawer_menu.dart';
+import 'perguntas/perguntas.dart';
 
 class Cadastros extends StatefulWidget {
   const Cadastros({super.key});
@@ -16,7 +18,7 @@ class CadastrosState extends State<Cadastros>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -50,7 +52,7 @@ class CadastrosState extends State<Cadastros>
                       color: Colors.transparent,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: DefaultTabController(
-                    length: 3,
+                    length: 2,
                     child: Scaffold(
                       appBar: AppBar(
                         toolbarHeight: 0,
@@ -65,20 +67,20 @@ class CadastrosState extends State<Cadastros>
                           labelStyle: const TextStyle(fontSize: 14),
                           tabs: const <Widget>[
                             Tab(
-                              text: "Processos",
+                              text: "Áreas",
                             ),
                             Tab(
                               text: "Perguntas",
                             ),
-                            Tab(
-                              text: "Respostas",
-                            ),
                           ],
                         ),
                       ),
-                      body: Container(
-                        color: Colors.green,
-                      ),
+                      body: TabBarView(
+                        controller: _tabController,
+                        children: const [
+                          CadastrosArea(),
+                          CadastrosPerguntas(),
+                      ],)
                     ),
                   )),
             )));
